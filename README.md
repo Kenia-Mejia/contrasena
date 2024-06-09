@@ -1,0 +1,1 @@
+Fue realizado el 16/05/24, este código solicita una contraseña que contenga 3 palabras separadas, un numero, una mayúscula, una minúscula y un carácter especial y si no cumple con los requisitos mostrar el motivo del error
