@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <script>
+    function valContrasena(){
+       
+        var contrasena = prompt("Ingresa tu contraseña:");
+        if(contrasena == null){
+            alert("No se ingreso ninguna contraseña")
+            return;
+        }
+        if (contrasena.length < 10 || contrasena.length > 20) {
+            alert("La contraseña debe tener entre 10 y 20 caracteres.");
+            return valContrasena();
+        }
+         
+        var mayus = false;
+        var minus = false;
+        var num = false;
+        var carac = false;
+
+        for(var i = 0; i < contrasena.length; i++){
+            var contra = contrasena[i];
+
+            if (contra >= 'A' && contra <= 'Z') {
+                mayus = true;
+            } else if (contra >= 'a' && contra <= 'z') {
+                minus = true;
+            } else if (contra >= '0' && contra <= '9') {
+                num = true;
+            } else {
+                var caract = "|¬°!%&/()=?'\¡¿#´+$*~`{}^<>.:-_;,[]";
+                for (var j = 0; j < caract.length; j++) {
+                    if (contra === caract[j]) {
+                        carac = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if(!mayus){
+            alert("La contraseña debe contener al menos una mayúscula.");
+            return valContrasena();
+        }
+        if(!minus){
+            alert("La contraseña debe contener al menos una minúscula.");
+            return valContrasena();
+        }
+        if(!num){
+            alert("La contraseña debe contener al menos un número.");
+            return valContrasena();
+        }
+        if(!carac){
+            alert("La contraseña debe contener al menos un carácter especial.");
+            return valContrasena();
+        }
+
+        var pala = contrasena.split(" ");
+        if (pala.length !== 3) {
+            alert("La contraseña debe contener exactamente 3 palabras separadas por espacios.");
+            return valContrasena();
+        } else {
+            alert("Contraseña válida: " + contrasena);
+        }
+
+    }
+</script>
+<body>
+    <script>valContrasena();</script>
+</body> 
+</html>
